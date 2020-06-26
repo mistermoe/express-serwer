@@ -1,13 +1,24 @@
 class Server {
-    constructor(app) {
+    constructor(app, keepAliveTimeoutMillis, headersTimeoutMillis) {
         this.app = app;
         this.sockets = {};
         this.socketId = 1;
         this.http = undefined;
         this.stopping = false;
+        this.keepAliveTimeoutMillis = keepAliveTimeoutMillis;
+        this.headersTimeoutMillis = headersTimeoutMillis;
     }
     listen(port) {
         this.http = this.app.listen(port);
+
+        if (this.keepAliveTimeoutMillis) {
+            this.http.keepAliveTimeout = this.keepAliveTimeoutMillis;
+        }
+
+        if (this.headersTimeoutMillis) {
+            this.http.headersTimeout = this.headersTimeoutMillis;
+        }
+        
         // This event is emitted when a new TCP stream is established
         this.http.on('connection', socket => {
             // set socket to idle. this same socket will be accessible within the `http.on('request', (req, res))` event listener
