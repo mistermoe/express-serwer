@@ -1,0 +1,21 @@
+{
+  "name": "express-serwer",
+  "version": "1.0.0",
+  "description": "a simple wrapper for express apps that provides graceful shutdown",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistermoe/express-serwer.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "server"
+  ],
+  "author": "Moe Jangda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mistermoe/express-serwer/issues"
+  },
+  "homepage": "https://github.com/mistermoe/express-serwer#readme"
+}
