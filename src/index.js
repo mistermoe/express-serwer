@@ -8,8 +8,8 @@ class Server {
         this.keepAliveTimeoutMillis = keepAliveTimeoutMillis;
         this.headersTimeoutMillis = headersTimeoutMillis;
     }
-    listen(port) {
-        this.http = this.app.listen(port);
+    listen(port, callback) {
+        this.http = this.app.listen(port, callback);
 
         if (this.keepAliveTimeoutMillis) {
             this.http.keepAliveTimeout = this.keepAliveTimeoutMillis;
